@@ -55,7 +55,7 @@ export default function Home() {
       "name": faq.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": index === 1 
+        "text": index === 1
           ? "A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. If our FLIR scans detect persistent rising dampness or active mold, we recommend consulting MoldGuard Kenya (https://moldguardkenya.co.ke) for expert decontamination and mold remediation."
           : faq.answer
       }
@@ -86,7 +86,7 @@ export default function Home() {
       {/* 6. Sample Report Preview Showcase */}
       <section className="w-full py-16 md:py-24 bg-brand-bg dark:bg-[#19120D]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
+
           {/* Left Block: Description */}
           <div className="lg:col-span-6 flex flex-col gap-6 order-2 lg:order-1 animate-fade-in-up">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-gold">
@@ -135,10 +135,10 @@ export default function Home() {
           <div className="lg:col-span-6 flex items-center justify-center order-1 lg:order-2">
             <div className="bg-brand-card dark:bg-[#231A14] rounded-3xl p-6 md:p-8 border border-brand-accent shadow-xl w-full max-w-sm relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-tr from-brand-accent/10 to-transparent pointer-events-none" />
-              
+
               {/* Cover Mockup Frame */}
               <div className="bg-brand-dark text-brand-bg rounded-2xl p-6 md:p-8 flex flex-col justify-between aspect-[3/4] shadow-lg relative border-l-[6px] border-brand-gold">
-                
+
                 {/* Header branding */}
                 <div className="flex flex-col gap-1.5 border-b border-brand-accent/20 pb-4">
                   <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest">
@@ -181,7 +181,7 @@ export default function Home() {
       {/* 8. FAQ Accordion & Inquiry CTA ("Do You Have Any Questions?") */}
       <section className="w-full py-16 md:py-24 bg-brand-card dark:bg-[#231A14]">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-          
+
           {/* Left Block: FAQ Accordion */}
           <div className="lg:col-span-7 flex flex-col gap-8">
             <div className="flex flex-col gap-3 text-left">
@@ -208,16 +208,14 @@ export default function Home() {
                     >
                       <span>{faq.question}</span>
                       <ChevronDown
-                        className={`w-4 h-4 text-brand-gold shrink-0 transition-transform duration-300 ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
+                        className={`w-4 h-4 text-brand-gold shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
 
                     <div
-                      className={`transition-all duration-300 ${
-                        isOpen ? "max-h-[200px] border-t border-brand-accent/30" : "max-h-0"
-                      } overflow-hidden`}
+                      className={`transition-all duration-300 ${isOpen ? "max-h-[200px] border-t border-brand-accent/30" : "max-h-0"
+                        } overflow-hidden`}
                     >
                       <p className="px-6 py-5 text-[13px] leading-relaxed text-brand-muted dark:text-brand-accent-light bg-brand-card/30 dark:bg-brand-dark/20">
                         {idx === 1 ? (
