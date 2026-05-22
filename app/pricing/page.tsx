@@ -1,6 +1,12 @@
 import React from "react";
+import { Check } from "lucide-react";
 import Link from "next/link";
-import { Check, ClipboardCheck } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Property Inspection Pricing",
+  description: "Transparent pre-purchase property inspection rates in Kenya. Choose from Apartment, Home, or Villa diagnostics with zero hidden fees. Packages start at KES 25,000.",
+};
 
 export default function PricingPage() {
   const tiers = [
@@ -25,7 +31,7 @@ export default function PricingPage() {
       features: [
         "All Apartment features included",
         "Foundation & load structural check",
-        "Ceiling & roof truss inspection",
+        "Ceiling & roof structural check",
         "Rooftop drainage & gutter review",
         "Basic thermal imaging scan",
         "Digital snag list for negotiations",
@@ -51,8 +57,37 @@ export default function PricingPage() {
     },
   ];
 
+  const pricingSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "HouseCheck Kenya Property Inspections",
+    "description": "Premium structural, moisture, plumbing, and electrical audits for residential properties in Kenya.",
+    "brand": {
+      "@type": "Brand",
+      "name": "HouseCheck Kenya"
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "KES",
+      "lowPrice": "25000",
+      "highPrice": "40000",
+      "offerCount": "3",
+      "offers": tiers.map((tier) => ({
+        "@type": "Offer",
+        "name": tier.name,
+        "price": tier.price.replace("KES ", "").replace(",", ""),
+        "priceCurrency": "KES",
+        "url": "https://housecheck.co.ke/pricing"
+      }))
+    }
+  };
+
   return (
     <div className="w-full py-16 md:py-24 bg-brand-bg dark:bg-[#19120D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
         
         {/* Title */}

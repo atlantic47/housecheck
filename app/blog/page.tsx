@@ -20,8 +20,38 @@ export default function BlogPage() {
     return matchesSearch && matchesCategory;
   });
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "HouseCheck Kenya Property Insights & Guides",
+    "description": "Read independent structural guides, safety snags, and pre-purchase check insights compiled by our licensed Kenyan engineers.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "HouseCheck Kenya",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://housecheck.co.ke/logo.png"
+      }
+    },
+    "blogPost": mockBlogPosts.map((post) => ({
+      "@type": "BlogPosting",
+      "headline": post.title,
+      "description": post.excerpt,
+      "datePublished": new Date(post.date).toISOString(),
+      "author": {
+        "@type": "Person",
+        "name": post.author
+      },
+      "url": `https://housecheck.co.ke/blog/${post.slug}`
+    }))
+  };
+
   return (
     <div className="w-full py-16 md:py-24 bg-brand-bg dark:bg-[#19120D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
         
         {/* Title & Search bar */}

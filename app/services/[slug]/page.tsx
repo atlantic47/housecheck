@@ -3,9 +3,22 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Compass, CheckCircle2, ShieldCheck, HelpCircle, ArrowLeft } from "lucide-react";
 import { servicesList } from "@/lib/servicesData";
+import type { Metadata } from "next";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const service = servicesList.find((s) => s.slug === slug);
+  if (!service) {
+    return {};
+  }
+  return {
+    title: `${service.title} In Kenya | Pre-Purchase Inspection`,
+    description: `Expert pre-purchase diagnostics for ${service.title.toLowerCase()}s in Nairobi, Mombasa, and surrounding areas. Detailed snag lists, electrical checks, and moisture scans. Starting from ${service.price}.`,
+  };
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -19,6 +32,31 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  // Specific Service LD+JSON structured data
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": `Comprehensive pre-purchase structural, plumbing, electrical, and slab moisture diagnostics for ${service.title.toLowerCase()}s.`,
+    "provider": {
+      "@type": "HomeAndConstructionBusiness",
+      "name": "HouseCheck Kenya",
+      "telephone": "+254710907628",
+      "priceRange": "$$",
+      "image": "https://housecheck.co.ke/hero-villa.png"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Kenya"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "25000",
+      "priceCurrency": "KES",
+      "description": "Starting inspection rate for premium services"
+    }
+  };
+
   // Sample items checked by service type
   const checkedItems = [
     "Structural soundness of foundations and load-bearing walls",
@@ -29,8 +67,82 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     "Balcony safety rail, floor tiling slope and drainage grills",
   ];
 
+  // Dynamic JSX description renderer to pass contextual backlinks naturally
+  const renderDescription = () => {
+    if (slug === "mold-inspection") {
+      return (
+        <p className="text-sm md:text-base leading-relaxed text-brand-muted dark:text-brand-accent-light">
+          Active mold infestation poses serious respiratory health risks and compromises property structures. Our pre-purchase mold inspection uses airborne spore traps and surface swab diagnostics to map infestations. If severe mold issues are identified, we recommend utilizing{" "}
+          <a
+            href="https://moldguardkenya.co.ke"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-gold hover:underline font-bold"
+          >
+            MoldGuard Kenya's Professional Mold Remediation
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://moldguardkenya.co.ke/services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-gold hover:underline font-bold"
+          >
+            sanitization services
+          </a>{" "}
+          to securely sterilize and decontaminate your property. You can review current{" "}
+          <a
+            href="https://moldguardkenya.co.ke/blog/mold-removal-remediation-prices-kenya-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-gold hover:underline font-bold"
+          >
+            mold removal prices in Kenya
+          </a>{" "}
+          to assist in your budget planning.
+        </p>
+      );
+    }
+
+    if (slug === "moisture-leak-inspection") {
+      return (
+        <p className="text-sm md:text-base leading-relaxed text-brand-muted dark:text-brand-accent-light">
+          Unresolved leaks and thermal slab dampness are the primary root causes of indoor humidity, crumbling plaster, and subsequent toxic spores. Our high-resolution FLIR moisture scans map pipe leak paths deep behind drywalls. Understanding the critical difference between{" "}
+          <a
+            href="https://moldguardkenya.co.ke/blog/mold-vs-dampness-explained"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-gold hover:underline font-bold"
+          >
+            mold vs dampness
+          </a>{" "}
+          is vital for proper repair. For rapid, post-leak decontamination, contact{" "}
+          <a
+            href="https://moldguardkenya.co.ke/locations/nairobi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-gold hover:underline font-bold"
+          >
+            MoldGuard Kenya's Nairobi remediation team
+          </a>{" "}
+          to completely dry out and restore structural health.
+        </p>
+      );
+    }
+
+    return (
+      <p className="text-sm md:text-base leading-relaxed text-brand-muted dark:text-brand-accent-light">
+        We conduct highly exhaustive pre-purchase audits for {service.title.toLowerCase()}s in Nairobi, Mombasa, and surrounding suburbs. Using high-precision tools, we check internal wiring, slab humidity levels, and structural load pathways, generating an independent diagnostic report to secure your property investment.
+      </p>
+    );
+  };
+
   return (
     <div className="w-full py-16 md:py-24 bg-brand-bg dark:bg-[#19120D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-6 flex flex-col gap-10">
         
         {/* Back Link */}
@@ -55,9 +167,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
             </h1>
           </div>
 
-          <p className="text-sm md:text-base leading-relaxed text-brand-muted dark:text-brand-accent-light">
-            We conduct highly exhaustive pre-purchase audits for {service.title.toLowerCase()}s in Nairobi, Mombasa, and surrounding suburbs. Using high-precision tools, we check internal wiring, slab humidity levels, and structural load pathways, generating an independent diagnostic report to secure your property investment.
-          </p>
+          {renderDescription()}
 
           <div className="flex items-center justify-between border-t border-brand-accent/30 pt-6 mt-2">
             <div className="flex flex-col">

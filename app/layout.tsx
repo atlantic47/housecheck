@@ -69,6 +69,70 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${plusJakarta.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "Organization",
+                  "@id": "https://housecheck.co.ke/#organization",
+                  "name": "HouseCheck Kenya",
+                  "url": "https://housecheck.co.ke",
+                  "logo": "https://housecheck.co.ke/logo.png",
+                  "contactPoint": {
+                    "@type": "ContactPoint",
+                    "telephone": "+254-710-907628",
+                    "contactType": "customer service",
+                    "areaServed": "KE",
+                    "availableLanguage": "en"
+                  },
+                  "sameAs": [
+                    "https://www.facebook.com/housecheckkenya",
+                    "https://www.instagram.com/housecheckkenya",
+                    "https://twitter.com/housecheckkenya"
+                  ]
+                },
+                {
+                  "@type": "HomeAndConstructionBusiness",
+                  "@id": "https://housecheck.co.ke/#localbusiness",
+                  "name": "HouseCheck Kenya",
+                  "url": "https://housecheck.co.ke",
+                  "telephone": "+254710907628",
+                  "priceRange": "$$",
+                  "image": "https://housecheck.co.ke/hero-villa.png",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "5th Floor, Delta Corner Tower A, Westlands",
+                    "addressLocality": "Nairobi",
+                    "addressCountry": "KE"
+                  },
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "-1.2616",
+                    "longitude": "36.8080"
+                  },
+                  "openingHoursSpecification": {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": [
+                      "Monday",
+                      "Tuesday",
+                      "Wednesday",
+                      "Thursday",
+                      "Friday",
+                      "Saturday"
+                    ],
+                    "opens": "08:00",
+                    "closes": "18:00"
+                  }
+                }
+              ]
+            }),
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-brand-bg text-brand-dark dark:bg-[#19120D] dark:text-[#F5EBE6]">
         {/* Sticky Header Navigation */}
         <Navbar />

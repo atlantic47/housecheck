@@ -3,10 +3,47 @@ import Link from "next/link";
 import Image from "next/image";
 import { Compass, CheckCircle2 } from "lucide-react";
 import { servicesList } from "@/lib/servicesData";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Property Inspection Services",
+  description: "Comprehensive home diagnostic services in Kenya. We offer 9 specialized inspections including home, villa, apartment, mold, pest, and roof audits. Starting from KES 25,000.",
+};
 
 export default function ServicesPage() {
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "HouseCheck Kenya Property Inspection Services",
+    "description": "Comprehensive list of our 9 specialized inspection services for residential and commercial properties in Kenya.",
+    "itemListElement": servicesList.map((service, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": {
+        "@type": "Service",
+        "name": service.title,
+        "description": `Comprehensive physical pre-purchase diagnostics and structural reviews for ${service.title.toLowerCase()}s in Kenya.`,
+        "provider": {
+          "@type": "HomeAndConstructionBusiness",
+          "name": "HouseCheck Kenya",
+          "telephone": "+254710907628"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "25000",
+          "priceCurrency": "KES",
+          "url": `https://housecheck.co.ke/services/${service.slug}`
+        }
+      }
+    }))
+  };
+
   return (
     <div className="w-full py-16 md:py-24 bg-brand-bg dark:bg-[#19120D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-12">
         
         {/* Title */}

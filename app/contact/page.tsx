@@ -28,8 +28,28 @@ export default function ContactPage() {
     }
   };
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "HouseCheck Kenya Westlands HQ Office",
+    "url": "https://housecheck.co.ke/contact",
+    "telephone": "+254710907628",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5th Floor, Delta Corner Tower A, Westlands",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "image": "https://housecheck.co.ke/hero-villa.png",
+    "priceRange": "$$"
+  };
+
   return (
     <div className="w-full py-16 md:py-24 bg-brand-bg dark:bg-[#19120D]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col gap-16">
         
         {/* Title */}

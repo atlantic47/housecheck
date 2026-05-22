@@ -1,0 +1,17 @@
+# =========================================================================
+# HOUSECHECK KENYA - ENVIRONMENT CONFIGURATION TEMPLATE
+# =========================================================================
+
+# 1. Supabase Project Credentials
+# Obtain these from your Supabase Dashboard -> Project Settings -> API
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5jc3h0a3Zyc2J0aHZ2YmZhcWl1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk0MDczMTEsImV4cCI6MjA5NDk4MzMxMX0.zyPqP60EDTU9AxFkEPedSsrNxcnSZN30sfnkL9OoO2A
+
+# 2. Supabase Service Role Key (Used only securely on the server/CMS if needed)
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5jc3h0a3Zyc2J0aHZ2YmZhcWl1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3OTQwNzMxMSwiZXhwIjoyMDk0OTgzMzExfQ.z0np115cm4Dq7LUuySh1Mxjna6TiU7in1GpgJwAjDi0
+
+# 3. Transactional Email Service API (Resend.com or similar - Optional for Notifications)
+RESEND_API_KEY=re_your_api_key_here
+SUPPORT_EMAIL_RECIPIENT=inspections@housecheck.co.ke
+NEXT_PUBLIC_SUPABASE_URL=https://ncsxtkvrsbthvvbfaqiu.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_sxTJ5XSbp9jkvRpb0jC4IA_tjbseVr0

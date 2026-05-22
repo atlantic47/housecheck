@@ -47,8 +47,27 @@ export default function Home() {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqsList.map((faq, index) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": index === 1 
+          ? "A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. If our FLIR scans detect persistent rising dampness or active mold, we recommend consulting MoldGuard Kenya (https://moldguardkenya.co.ke) for expert decontamination and mold remediation."
+          : faq.answer
+      }
+    }))
+  };
+
   return (
     <div className="w-full flex flex-col">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* 1. Hero Banner Section */}
       <Hero />
 
@@ -201,7 +220,22 @@ export default function Home() {
                       } overflow-hidden`}
                     >
                       <p className="px-6 py-5 text-[13px] leading-relaxed text-brand-muted dark:text-brand-accent-light bg-brand-card/30 dark:bg-brand-dark/20">
-                        {faq.answer}
+                        {idx === 1 ? (
+                          <>
+                            A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. If our FLIR scans detect persistent rising dampness or active mold, we recommend consulting{" "}
+                            <a
+                              href="https://moldguardkenya.co.ke"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-brand-gold hover:underline font-bold"
+                            >
+                              MoldGuard Kenya
+                            </a>{" "}
+                            for expert decontamination and mold remediation.
+                          </>
+                        ) : (
+                          faq.answer
+                        )}
                       </p>
                     </div>
                   </div>
