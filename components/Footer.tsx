@@ -11,8 +11,12 @@ export default function Footer() {
         {/* Brand Block */}
         <div className="lg:col-span-2 flex flex-col gap-5">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-full bg-brand-dark flex items-center justify-center text-brand-bg">
-              <ClipboardCheck className="w-5 h-5 text-brand-accent" />
+            <div className="w-9 h-9 rounded-full overflow-hidden bg-brand-dark flex items-center justify-center text-brand-bg">
+              <img
+                src="/icon.png"
+                alt="HouseCheck Kenya Icon"
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="font-serif text-2xl font-bold tracking-tight text-brand-dark dark:text-brand-bg">
               House<span className="text-brand-gold font-sans font-medium text-xl">Check</span>

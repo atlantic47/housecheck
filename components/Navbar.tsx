@@ -44,8 +44,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-full bg-brand-dark flex items-center justify-center text-brand-bg group-hover:scale-105 transition-transform">
-            <ClipboardCheck className="w-5 h-5 text-brand-accent" />
+          <div className="w-9 h-9 rounded-full overflow-hidden bg-brand-dark flex items-center justify-center text-brand-bg group-hover:scale-105 transition-transform">
+            <img
+              src="/icon.png"
+              alt="HouseCheck Kenya Icon"
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-serif text-2xl font-bold tracking-tight text-brand-dark dark:text-brand-bg">
             House<span className="text-brand-gold font-sans font-medium text-xl">Check</span>
