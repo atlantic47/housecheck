@@ -56,7 +56,7 @@ export default function Home() {
       "acceptedAnswer": {
         "@type": "Answer",
         "text": index === 1
-          ? "A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. If our FLIR scans detect persistent rising dampness or active mold, we recommend consulting MoldGuard Kenya (https://moldguardkenya.co.ke) for expert decontamination and mold remediation."
+          ? "A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. For professional mold extraction and decontamination services, we suggest contacting the leading Mold removal services company in Nairobi Kenya (https://moldguardkenya.co.ke) to inspect the building thoroughly."
           : faq.answer
       }
     }))
@@ -96,7 +96,16 @@ export default function Home() {
               Review a Real-Life Sample Inspection Report
             </h2>
             <p className="text-sm md:text-base leading-relaxed text-brand-muted dark:text-brand-accent-light">
-              We believe in full transparency. Our digital reports are structured to be simple yet incredibly technical. We outline structural defects, safety hazards, and future maintenance recommendations with clear, high-resolution annotated photographs.
+              We believe in full transparency. Our digital reports are structured to be simple yet incredibly technical. We outline structural defects, safety hazards, and future maintenance recommendations. If you suspect indoor air quality problems or structural moisture, organizing comprehensive{" "}
+              <a
+                href="https://moldguardkenya.co.ke/services"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-gold hover:underline font-bold"
+              >
+                Mold testing services in Kenya
+              </a>{" "}
+              is essential to rule out hidden spore levels.
             </p>
 
             <ul className="flex flex-col gap-3 text-sm text-brand-muted dark:text-brand-accent-light font-semibold">
@@ -220,16 +229,16 @@ export default function Home() {
                       <p className="px-6 py-5 text-[13px] leading-relaxed text-brand-muted dark:text-brand-accent-light bg-brand-card/30 dark:bg-brand-dark/20">
                         {idx === 1 ? (
                           <>
-                            A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. If our FLIR scans detect persistent rising dampness or active mold, we recommend consulting{" "}
+                            A standard apartment takes 2 to 3 hours, while a large villa takes 4 to 5 hours. We deliver your comprehensive digital PDF report with annotated photos within 24 to 48 hours of completing the physical walkthrough. For professional mold extraction and decontamination services, we suggest contacting the leading{" "}
                             <a
                               href="https://moldguardkenya.co.ke"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="text-brand-gold hover:underline font-bold"
                             >
-                              MoldGuard Kenya
+                              Mold removal services company in Nairobi Kenya
                             </a>{" "}
-                            for expert decontamination and mold remediation.
+                            to inspect the building thoroughly.
                           </>
                         ) : (
                           faq.answer
@@ -248,7 +257,16 @@ export default function Home() {
               Do You Have Any Questions?
             </h3>
             <p className="text-[13px] leading-relaxed text-brand-muted dark:text-brand-accent-light">
-              Can't find the answers you need in our FAQ? Our support team is online to assist you via WhatsApp live chat or email inquiry.
+              Can't find the answers you need in our FAQ? Our support team is online to assist you via WhatsApp live chat or email inquiry. For immediate air purification, dehumidification setups, or professional building sanitization, you can consult the expert{" "}
+              <a
+                href="https://moldguardkenya.co.ke"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-gold hover:underline font-bold"
+              >
+                Mold removal services company in Nairobi Kenya
+              </a>{" "}
+              directly.
             </p>
 
             <div className="flex flex-col gap-4 mt-2">

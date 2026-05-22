@@ -22,7 +22,16 @@ export default function BeforeAfterGallery() {
             See the Unseen with Advanced Thermal Imaging
           </h2>
           <p className="text-sm md:text-base leading-relaxed text-brand-muted dark:text-brand-accent-light">
-            A wall might look freshly painted and dry to the naked eye. However, our high-resolution thermal diagnostics reveal hidden moisture, slab dampness, and leaking pipes tucked inside the drywall or concrete before it becomes a hazardous mold infestation.
+            A wall might look freshly painted and dry to the naked eye. However, our high-resolution thermal diagnostics reveal hidden moisture, slab dampness, and leaking pipes tucked inside the drywall or concrete. For homes facing high humidity or active spores, utilizing expert{" "}
+            <a
+              href="https://moldguardkenya.co.ke"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-gold hover:underline font-bold"
+            >
+              Mold treatment services in Kenya
+            </a>{" "}
+            is essential to safely isolate and restore structural integrity.
           </p>
 
           {/* Toggle controls */}
